@@ -1,4 +1,5 @@
 class GardensController < ApplicationController
+  before_action :authenticate_user!, only: :create
   before_action :set_garden, only: [:show, :edit, :update, :destroy]
 
   # GET /gardens
@@ -25,6 +26,7 @@ class GardensController < ApplicationController
   # POST /gardens.json
   def create
     @garden = Garden.new(garden_params)
+    @garden.user = current_user
 
     respond_to do |format|
       if @garden.save

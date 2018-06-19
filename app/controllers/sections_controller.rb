@@ -1,34 +1,38 @@
 class SectionsController < ApplicationController
   before_action :set_section, only: [:show, :edit, :update, :destroy]
 
-  # GET /sections
-  # GET /sections.json
+  # GET /garden/:garden_id//sections
+  # GET /garden/:garden_id//sections.json
   def index
     @sections = Section.all
   end
 
-  # GET /sections/1
-  # GET /sections/1.json
+  # GET /garden/:garden_id//sections/1
+  # GET /garden/:garden_id//sections/1.json
   def show
   end
 
-  # GET /sections/new
+  # GET /garden/:garden_id//sections/new
   def new
     @section = Section.new
+    @garden = Garden.find(params[:garden_id])
   end
 
-  # GET /sections/1/edit
+  # GET /garden/:garden_id//sections/1/edit
   def edit
   end
 
-  # POST /sections
-  # POST /sections.json
+  # POST /garden/:garden_id/sections
+  # POST /garden/:garden_id/sections.json
   def create
     @section = Section.new(section_params)
+    # using nested routing to assign the new section to the garden
+    @garden = Garden.find(params[:garden_id])
+    @section.garden = @garden
 
     respond_to do |format|
       if @section.save
-        format.html { redirect_to @section, notice: 'Section was successfully created.' }
+        format.html { redirect_to garden_section_path(garden_id: @garden, id: @section), notice: 'Section was successfully created.' }
         format.json { render :show, status: :created, location: @section }
       else
         format.html { render :new }
@@ -37,8 +41,8 @@ class SectionsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /sections/1
-  # PATCH/PUT /sections/1.json
+  # PATCH/PUT /garden/:garden_i/sections/1
+  # PATCH/PUT /garden/:garden_i/sections/1.json
   def update
     respond_to do |format|
       if @section.update(section_params)
