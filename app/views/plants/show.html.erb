@@ -9,9 +9,7 @@
     <div class="col">
       <h4 class="section-heading">Gardens</h4>
 
-      <%= link_to garden_path(id: @plant.garden_id) do %>
-        <p><%= @garden.name %></p>
-      <% end %>
+
     </div>
     <div class="col-6">
       <%= image_tag(@plant.image.url, class: "card-img-top", id: "garden-show-image", alt: "Card image cap") %>
@@ -25,4 +23,3 @@
   <%= link_to 'Delete Plant', @plant, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-sm", id: "garden-btn" %>
 
 </div>
- 

@@ -14,7 +14,7 @@ class PlantsController < ApplicationController
   # GET /plants/1
   # GET /plants/1.json
   def show
-    @garden = Garden.find(params[:id])
+    @plant = Plant.find(params[:id])
   end
 
   # GET /plants/new

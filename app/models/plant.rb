@@ -1,8 +1,10 @@
 class Plant < ApplicationRecord
   #relations
   belongs_to :user
-  belongs_to :garden, optional: true
+  has_many :plantings
+  has_many :gardens, :through => :plantings
   belongs_to :collection, optional: true
+
   validate :valid_name?
 
   mount_uploader :image, ImageUploader
@@ -15,4 +17,3 @@ class Plant < ApplicationRecord
   end
 
 end
- 
