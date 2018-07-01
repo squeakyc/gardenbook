@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_29_195700) do
+ActiveRecord::Schema.define(version: 2018_07_01_140208) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,13 @@ ActiveRecord::Schema.define(version: 2018_06_29_195700) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "garden_plants", force: :cascade do |t|
+    t.integer "garden_id"
+    t.integer "plant_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "gardens", force: :cascade do |t|
     t.integer "user_id"
     t.string "name"
@@ -31,6 +38,13 @@ ActiveRecord::Schema.define(version: 2018_06_29_195700) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "plant_id"
+  end
+
+  create_table "gardens_plants", id: false, force: :cascade do |t|
+    t.bigint "garden_id", null: false
+    t.bigint "plant_id", null: false
+    t.index ["garden_id", "plant_id"], name: "index_gardens_plants_on_garden_id_and_plant_id"
+    t.index ["plant_id", "garden_id"], name: "index_gardens_plants_on_plant_id_and_garden_id"
   end
 
   create_table "plants", force: :cascade do |t|
