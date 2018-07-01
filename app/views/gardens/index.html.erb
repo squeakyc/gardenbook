@@ -1,0 +1,29 @@
+<div class="jumbotron" id="gardens-jumbotron">
+  <h1 class="display-4" id="home-title">My Gardens</h1>
+  <p class="lead" id="jumbotron-text">
+    <em>"My garden is my most beautiful masterpiece."</em></p>
+  <p id="jumbotron-text">- Claude Monet</p>
+
+</div>
+
+
+
+<div class="container">
+  <%= link_to "New Garden", new_garden_path, class: "btn btn-info btn-lg btn-block", id: "new-garden-button"%>
+
+
+  <div class="card-deck" id="garden-cards">
+    <% @gardens.each do |garden| %>
+      <div class="col-4">
+        <div class="card" id="garden-cards">
+          <%= image_tag(garden.image.url, class: "card-img-top", alt: "Card image cap") %>
+          <div class="card-body">
+            <h5 class="card-title"><%= garden.name %></h5>
+          </div>
+          <%= link_to 'View', garden, class: "btn btn-info" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+</div>

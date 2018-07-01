@@ -1,0 +1,45 @@
+<div class="jumbotron" id="home-jumbotron">
+    <h1 class="display-4" id="home-title">My GardenBook</h1>
+    <p class="lead" id="jumbotron-text">
+			<em>"Gardens are not made by singing 'Oh, how beautiful,' and sitting in the shade."</em></p>
+    <p id="jumbotron-text">- Rudyard Kipling</p>
+    <%= link_to "New Garden", new_garden_path, class: "btn btn-light btn-lg", id: "new-buttons"%>
+    <%= link_to "New Collection", new_collection_path, class: "btn btn-light btn-lg", id: "new-buttons"%>
+    <%= link_to "New Plant", new_plant_path, class: "btn btn-light btn-lg", id: "new-buttons"%>
+</div>
+
+<!-- My Gardens sample section -->
+<div class="container" id="home-container">
+<h2><%= link_to "My Gardens", gardens_path, class: "section-heading" %></h2>
+<div class="card-deck">
+  <% @gardens.order("RANDOM()").limit(3).each do |garden| %>
+    <div class="col-4">
+      <div class="card" id="garden-cards">
+        <%= image_tag(garden.image.url, class: "card-img-top", alt: "Card image cap") %>
+        <div class="card-body">
+          <h5 class="card-title"><%= garden.name %></h5>
+        </div>
+        <%= link_to 'View', garden, class: "btn btn-info" %>
+      </div>
+    </div>
+  <% end %>
+</div>
+</div>
+
+<!-- My Plants sample section -->
+<div class="container" id="home-container">
+<h2><%= link_to "My Plants", plants_path, class: "section-heading" %></h2>
+<div class="card-deck">
+  <% @plants.order("RANDOM()").limit(3).each do |plant| %>
+    <div class="col-4">
+      <div class="card" id="garden-cards">
+        <%= image_tag(plant.image.url, class: "card-img-top", alt: "Card image cap") %>
+        <div class="card-body">
+          <h5 class="card-title"><%= plant.latin_name %></h5>
+        </div>
+        <%= link_to 'View', plant, class: "btn btn-info" %>
+      </div>
+    </div>
+  <% end %>
+</div>
+</div>

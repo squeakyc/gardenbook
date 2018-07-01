@@ -1,0 +1,119 @@
+@import "bootstrap";
+
+#notice{
+  text-align: center;
+
+}
+
+.jumbotron{
+  margin: -5px;
+  text-align: center;
+  background-size: cover;
+  background-attachment: fixed;
+  color: white;
+  text-shadow: 2px 2px #000;
+}
+
+#home-jumbotron{
+ background-image: url(arbor.jpg);
+}
+
+#home-title{
+  margin-bottom: 80px;
+}
+
+#new-buttons{
+  color: steelblue;
+  margin-left: 40px;
+  margin-right: 40px;
+  margin-top: 80px;
+  text-shadow: none;
+}
+
+.section-heading{
+   text-align: center;
+   color: #17a2b8;
+ }
+
+
+#home-container{
+  margin-top: 50px;
+  text-align: center;
+}
+
+.card-deck{
+  margin-bottom: 60px;
+  text-align: center;
+}
+
+// Gardens View
+#gardens-jumbotron{
+  background-image: url(tropical.jpg);
+}
+
+#garden-cards{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+// New Garden View
+#new-garden-jumbotron{
+  background-image: url(new-garden.jpg);
+}
+
+#new-garden-button{
+  margin-top: 30px;
+}
+
+#new-garden-data-entry{
+  margin: 10px;
+}
+
+// Show Garden View
+#show{
+  text-align: center;
+}
+
+#show-garden-jumbotron{
+  background-image: url(wall.jpg);
+}
+
+#garden-description{
+  color: #17a2b8;
+}
+
+#garden-new-plant-button{
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+#garden-btn{
+
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+#garden-show-image{
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+// New Plant View
+#new-plant-jumbotron{
+  background-image: url(hummingbird.jpg);
+}
+
+#new-plant-data-entry{
+  margin: 10px;
+}
+
+// Plants View
+#plants-jumbotron{
+  background-image: url(wall.jpg);
+}
+
+// Collections View
+#collection-jumbotron{
+  background-image: url(succulent.jpg);
+}

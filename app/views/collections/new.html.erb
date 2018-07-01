@@ -1,0 +1,14 @@
+<div class="jumbotron" id="new-collection-jumbotron">
+    <h1 class="display-4" id="home-title">New Collection</h1>
+    <p class="lead" id="jumbotron-text">
+			<em>"If you have a garden and a library, you have everything you need."</em></p>
+    <p id="jumbotron-text">- Marcus Tullius Cicero</p>
+    <%= link_to "New Garden", new_garden_path, class: "btn btn-light btn-lg", id: "new-buttons"%>
+    <%= link_to "New Collection", new_garden_path, class: "btn btn-light btn-lg", id: "new-buttons"%>
+    <%= link_to "New Plant", new_garden_path, class: "btn btn-light btn-lg", id: "new-buttons"%>
+</div>
+
+<br>
+<div class="container">
+  <%= render 'form', collection: @collection %>
+</div>

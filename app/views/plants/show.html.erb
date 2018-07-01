@@ -1,0 +1,28 @@
+<div class="container" id="show">
+
+  <h1 class="section-heading"><em><%= @plant.latin_name %></em></h1>
+  <h4 class="section-heading"><%= @plant.common_name %></h4>
+
+  <%= link_to 'Edit Plant', edit_plant_path(@plant), class: "btn btn-info btn-sm", id: "garden-btn" %>
+
+  <div class="row">
+    <div class="col">
+      <h4 class="section-heading">Gardens</h4>
+
+      <%= link_to garden_path(id: @plant.garden_id) do %>
+        <p><%= @garden.name %></p>
+      <% end %>
+    </div>
+    <div class="col-6">
+      <%= image_tag(@plant.image.url, class: "card-img-top", id: "garden-show-image", alt: "Card image cap") %>
+    </div>
+    <div class="col">
+      <h4 class="section-heading">Collections</h4>
+    </div>
+  </div>
+<br>
+
+  <%= link_to 'Delete Plant', @plant, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-sm", id: "garden-btn" %>
+
+</div>
+ 

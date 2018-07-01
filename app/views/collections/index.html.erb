@@ -1,0 +1,58 @@
+<div class="jumbotron" id="collection-jumbotron">
+  <h1 class="display-4" id="home-title">My Collections</h1>
+  <p class="lead" id="jumbotron-text">
+    <em>"My garden is my most beautiful masterpiece."</em></p>
+  <p id="jumbotron-text">- Claude Monet</p>
+
+  <%= link_to "New Collection", new_collection_path, class: "btn btn-light btn-lg", id: "new-buttons"%>
+</div>
+
+<p id="notice"><%= notice %></p>
+
+<div class="container">
+  <div class="card-deck" id="garden-cards">
+    <% @collections.each do |collection| %>
+      <div class="col-4">
+        <div class="card" id="garden-cards">
+          <%= image_tag image_path("zen.jpg"), class: "card-img-top", alt: "Card image cap" %>
+          <div class="card-body">
+            <h5 class="card-title"><%= collection.name %></h5>
+          </div>
+          <%= link_to 'View', collection, class: "btn btn-info" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+</div>
+
+
+<h1>Collections</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>User</th>
+      <th>Description</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @collections.each do |collection| %>
+      <tr>
+        <td><%= collection.name %></td>
+        <td><%= collection.user_id %></td>
+        <td><%= collection.description %></td>
+        <td><%= link_to 'Show', collection %></td>
+        <td><%= link_to 'Edit', edit_collection_path(collection) %></td>
+        <td><%= link_to 'Destroy', collection, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Collection', new_collection_path %>
