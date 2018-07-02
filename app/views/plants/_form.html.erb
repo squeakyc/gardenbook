@@ -18,13 +18,23 @@
       </div>
       <div class="col">
         <div class="form-group" id="new-plant-data-entry">
+          <p><strong>Latin Name (required):</strong></p>
           <%= form.text_field :latin_name, placeholder: "Latin Name", autofocus: true, class: 'form-control' %>
         </div>
+
         <div class="form-group" id="new-plant-data-entry">
-          <%= form.text_field :common_name, placeholder: "Common Name", autofocus: true, class: 'form-control' %>
+          <p><strong>Common Name:</strong></p>
+          <%= form.text_field :common_name, placeholder: "Common Name", class: 'form-control' %>
         </div>
+
         <div class="form-group" id="new-plant-data-entry">
+          <p><strong>Gardens:</strong></p>
           <%= form.select(:garden_id, @gardens.collect { |g| [g.name, g.id] }) %>
+        </div>
+
+        <div class="form-group" id="new-plant-data-entry">
+          <p><strong>Notes:</strong></p>
+          <%= form.text_area :notes, placeholder: "Notes", class: 'form-control' %>
         </div>
 
         <div class="form-group" id="new-plant-data-entry">

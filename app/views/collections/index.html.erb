@@ -7,14 +7,13 @@
   <%= link_to "New Collection", new_collection_path, class: "btn btn-light btn-lg", id: "new-buttons"%>
 </div>
 
-<p id="notice"><%= notice %></p>
+<%= link_to "New Collection", new_collection_path, class: "btn btn-info btn-lg btn-block", id: "new-garden-button"%>
 
-<div class="container">
   <div class="card-deck" id="garden-cards">
     <% @collections.each do |collection| %>
       <div class="col-4">
         <div class="card" id="garden-cards">
-          <%= image_tag image_path("zen.jpg"), class: "card-img-top", alt: "Card image cap" %>
+
           <div class="card-body">
             <h5 class="card-title"><%= collection.name %></h5>
           </div>
@@ -24,7 +23,6 @@
     <% end %>
   </div>
 
-</div>
 
 
 <h1>Collections</h1>

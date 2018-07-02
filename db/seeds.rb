@@ -13,7 +13,7 @@ user = User.create!(username: 'SqueakyC', email: 'can@gmail.com', password: 'pas
 
   # ...with 5 plants each
   5.times do
-    Plant.create!(latin_name: Faker::Zelda.character, garden_id: garden, user_id: user.id)
+    garden.plants.create!(latin_name: Faker::Zelda.character, garden_id: garden, user_id: user.id)
   end
 
 end

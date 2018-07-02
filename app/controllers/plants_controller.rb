@@ -26,6 +26,7 @@ class PlantsController < ApplicationController
   # GET /plants/1/edit
   def edit
 
+
   end
 
   # POST /plants
@@ -82,6 +83,6 @@ class PlantsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def plant_params
-      params.require(:plant).permit(:latin_name, :common_name, :image, :garden_id)
+      params.require(:plant).permit(:latin_name, :common_name, :image, :garden_id, :notes)
     end
 end

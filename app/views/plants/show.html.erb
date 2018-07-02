@@ -3,23 +3,40 @@
   <h1 class="section-heading"><em><%= @plant.latin_name %></em></h1>
   <h4 class="section-heading"><%= @plant.common_name %></h4>
 
-  <%= link_to 'Edit Plant', edit_plant_path(@plant), class: "btn btn-info btn-sm", id: "garden-btn" %>
+
 
   <div class="row">
     <div class="col">
-      <h4 class="section-heading">Gardens</h4>
+      <br>
+      <h4 class="section-heading">Gardens with <%= @plant.latin_name %></h4>
+      <%= link_to "Add to a Garden", edit_plant_path, class: "btn btn-info btn-sm", id: "add-button" %>
 
+      <% @plant.gardens.each do |garden| %>
+        <p><%= link_to garden.name, garden_path(id: garden.id) %></p>
+      <% end %>
 
     </div>
     <div class="col-6">
       <%= image_tag(@plant.image.url, class: "card-img-top", id: "garden-show-image", alt: "Card image cap") %>
+
+      <div class="card text-center">
+        <div class="card-header">
+          <strong>Notes</strong>
+        </div>
+        <div class="card-body">
+          <%= @plant.notes %>
+        </div>
+      </div>
+
     </div>
     <div class="col">
-      <h4 class="section-heading">Collections</h4>
+      <br>
+      <h4 class="section-heading">Collections with <%= @plant.latin_name %></h4>
+      <%= link_to "Add to a Collection", edit_plant_path, class: "btn btn-info btn-sm", id: "add-button" %>
     </div>
   </div>
 <br>
-
+  <%= link_to 'Edit Plant', edit_plant_path(@plant), class: "btn btn-info btn-sm", id: "garden-btn" %>
   <%= link_to 'Delete Plant', @plant, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-sm", id: "garden-btn" %>
 
 </div>
