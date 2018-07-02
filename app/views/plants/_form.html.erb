@@ -27,9 +27,13 @@
           <%= form.text_field :common_name, placeholder: "Common Name", class: 'form-control' %>
         </div>
 
+
+
+
+
         <div class="form-group" id="new-plant-data-entry">
           <p><strong>Gardens:</strong></p>
-          <%= form.select(:garden_id, @gardens.collect { |g| [g.name, g.id] }) %>
+          <%= form.collection_select :garden_ids, Garden.all, :id, :name, {}, {multiple: true} %>
         </div>
 
         <div class="form-group" id="new-plant-data-entry">

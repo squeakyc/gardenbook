@@ -32,7 +32,7 @@ class PlantsController < ApplicationController
   # POST /plants
   # POST /plants.json
   def create
-    @plant = Plant.new(plant_params)
+    @plant = Plant.create(plant_params)
     @plant.user = current_user
 
 
@@ -83,6 +83,6 @@ class PlantsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def plant_params
-      params.require(:plant).permit(:latin_name, :common_name, :image, :garden_id, :notes)
+      params.require(:plant).permit(:latin_name, :common_name, :image, :garden_id, :notes, :garden_ids => [])
     end
 end

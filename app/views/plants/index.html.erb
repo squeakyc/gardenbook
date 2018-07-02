@@ -4,11 +4,12 @@
     <em>"My garden is my most beautiful masterpiece."</em></p>
   <p id="jumbotron-text">- Claude Monet</p>
 
-  <%= link_to "New Plant", new_plant_path, class: "btn btn-light btn-lg", id: "new-buttons"%>
+
 </div>
 
 
 <div class="container">
+  <%= link_to "New Plant", new_plant_path, class: "btn btn-info btn-lg btn-block", id: "new-garden-button"%>
   <div class="card-deck" id="garden-cards">
     <% @plants.each do |plant| %>
       <div class="col-4">
