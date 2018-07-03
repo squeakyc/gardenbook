@@ -2,7 +2,6 @@
   <% if plant.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(plant.errors.count, "error") %> prohibited this plant from being saved:</h2>
-
       <ul>
       <% plant.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -12,13 +11,14 @@
   <% end %>
 
   <div class="container">
+    <%= link_to "Back", plants_path, class: "btn btn-info" %>
     <div class="row">
       <div class="col">
-
       </div>
+
       <div class="col">
         <div class="form-group" id="new-plant-data-entry">
-          <p><strong>Latin Name (required):</strong></p>
+          <p><strong>Latin Name:</strong></p>
           <%= form.text_field :latin_name, placeholder: "Latin Name", autofocus: true, class: 'form-control' %>
         </div>
 
@@ -26,10 +26,6 @@
           <p><strong>Common Name:</strong></p>
           <%= form.text_field :common_name, placeholder: "Common Name", class: 'form-control' %>
         </div>
-
-
-
-
 
         <div class="form-group" id="new-plant-data-entry">
           <p><strong>Gardens:</strong></p>
@@ -61,3 +57,5 @@
   </div>
 
 <% end %>
+
+<br><br>
