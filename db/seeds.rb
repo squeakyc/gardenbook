@@ -4,6 +4,7 @@ User.destroy_all
 Garden.destroy_all
 Plant.destroy_all
 Collection.destroy_all
+Task.destroy_all
 
 user = User.create!(username: 'SqueakyC', email: 'can@gmail.com', password: 'password')
 
@@ -20,4 +21,8 @@ end
 
 5.times do
   Collection.create!(name: Faker::Zelda.item, description: Faker::Lorem.sentence, user_id: user.id)
+end
+
+5.times do
+  Task.create!(description: Faker::Hipster.sentence(3), deadline: 'Sept. 16, 2018', user_id: user.id)
 end

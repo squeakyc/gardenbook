@@ -1,54 +1,61 @@
 <div class="jumbotron" id="collection-jumbotron">
   <h1 class="display-4" id="home-title">My Collections</h1>
+  <%= link_to "New Garden", new_garden_path, class: "btn btn-light btn-lg", id: "new-buttons"%>
+  <%= link_to "New Collection", new_collection_path, class: "btn btn-light btn-lg", id: "new-buttons"%>
+  <%= link_to "New Plant", new_plant_path, class: "btn btn-light btn-lg", id: "new-buttons"%>
   <p class="lead" id="jumbotron-text">
     <em>"My garden is my most beautiful masterpiece."</em></p>
   <p id="jumbotron-text">- Claude Monet</p>
 </div>
 
-<%= link_to "New Collection", new_collection_path, class: "btn btn-info btn-lg btn-block", id: "new-garden-button"%>
+<div class="container">
 
-  <div class="card-deck" id="garden-cards">
-    <% @collections.each do |collection| %>
-      <div class="col-4">
-        <div class="card" id="garden-cards">
 
-          <div class="card-body">
-            <h5 class="card-title"><%= collection.name %></h5>
+  <%= link_to "New Collection", new_collection_path, class: "btn btn-info btn-lg btn-block", id: "new-garden-button"%>
+
+    <div class="card-deck" id="garden-cards">
+      <% @collections.each do |collection| %>
+        <div class="col-4">
+          <div class="card" id="garden-cards">
+
+            <div class="card-body">
+              <h5 class="card-title"><%= collection.name %></h5>
+            </div>
+            <%= link_to 'View', collection, class: "btn btn-info" %>
           </div>
-          <%= link_to 'View', collection, class: "btn btn-info" %>
         </div>
-      </div>
-    <% end %>
-  </div>
+      <% end %>
+    </div>
 
 
 
-<h1>Collections</h1>
+  <h1>Collections</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>User</th>
-      <th>Description</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @collections.each do |collection| %>
+  <table>
+    <thead>
       <tr>
-        <td><%= collection.name %></td>
-        <td><%= collection.user_id %></td>
-        <td><%= collection.description %></td>
-        <td><%= link_to 'Show', collection %></td>
-        <td><%= link_to 'Edit', edit_collection_path(collection) %></td>
-        <td><%= link_to 'Destroy', collection, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>Name</th>
+        <th>User</th>
+        <th>Description</th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
+    <tbody>
+      <% @collections.each do |collection| %>
+        <tr>
+          <td><%= collection.name %></td>
+          <td><%= collection.user_id %></td>
+          <td><%= collection.description %></td>
+          <td><%= link_to 'Show', collection %></td>
+          <td><%= link_to 'Edit', edit_collection_path(collection) %></td>
+          <td><%= link_to 'Destroy', collection, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
-<%= link_to 'New Collection', new_collection_path %>
+  <br>
+
+  <%= link_to 'New Collection', new_collection_path %>
+</div>

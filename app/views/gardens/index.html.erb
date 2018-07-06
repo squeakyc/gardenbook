@@ -1,10 +1,13 @@
 <div class="jumbotron" id="gardens-jumbotron">
   <h1 class="display-4" id="home-title">My Gardens</h1>
+  <%= link_to "New Garden", new_garden_path, class: "btn btn-light btn-lg", id: "new-buttons"%>
+  <%= link_to "New Collection", new_collection_path, class: "btn btn-light btn-lg", id: "new-buttons"%>
+  <%= link_to "New Plant", new_plant_path, class: "btn btn-light btn-lg", id: "new-buttons"%>
   <p class="lead" id="jumbotron-text">
     <em>"My garden is my most beautiful masterpiece."</em></p>
   <p id="jumbotron-text">- Claude Monet</p>
 </div>
-
+<p id="notice"><%= notice %></p>
 
 
 <div class="container">

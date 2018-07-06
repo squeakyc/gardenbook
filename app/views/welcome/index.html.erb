@@ -1,56 +1,73 @@
 <div class="jumbotron" id="home-jumbotron">
-    <h1 class="display-4" id="home-title">My GardenBook</h1>
-    <p class="lead" id="jumbotron-text">
-			<em>"Gardens are not made by singing 'Oh, how beautiful,' and sitting in the shade."</em></p>
-    <p id="jumbotron-text">- Rudyard Kipling</p>
-    <%= link_to "New Garden", new_garden_path, class: "btn btn-light btn-lg", id: "new-buttons"%>
-    <%= link_to "New Collection", new_collection_path, class: "btn btn-light btn-lg", id: "new-buttons"%>
-    <%= link_to "New Plant", new_plant_path, class: "btn btn-light btn-lg", id: "new-buttons"%>
+  <h1 class="display-4" id="home-title">My GardenBook</h1>
+  <%= link_to "New Garden", new_garden_path, class: "btn btn-light btn-lg", id: "new-buttons"%>
+  <%= link_to "New Collection", new_collection_path, class: "btn btn-light btn-lg", id: "new-buttons"%>
+  <%= link_to "New Plant", new_plant_path, class: "btn btn-light btn-lg", id: "new-buttons"%>
+  <p class="lead" id="jumbotron-text">
+		<em>"Gardens are not made by singing 'Oh, how beautiful,' and sitting in the shade."</em></p>
+  <p id="jumbotron-text">- Rudyard Kipling</p>
 </div>
+<p id="notice"><%= notice %></p>
+
 
 <br>
 
-<ul class="list-group">
-  <li class="list-group-item"><strong>TO DO</strong></li>
-  <li class="list-group-item">Partialize Jumbotrons</li>
-  <li class="list-group-item">Pagination for plants & gardens</li>
-  <li class="list-group-item">Sort option for plants & gardens</li>
-  <li class="list-group-item">Change _form <em>form.collection_select</em> to checkboxes</li>
-  <li class="list-group-item">Join table for plants/collections</li>
-</ul>
-
-<!-- My Gardens sample section -->
 <div class="container" id="home-container">
-<h2><%= link_to "My Gardens", gardens_path, class: "section-heading" %></h2>
-<div class="card-deck">
-  <% @gardens.order("RANDOM()").limit(3).each do |garden| %>
+  <div class="row">
     <div class="col-4">
-      <div class="card" id="garden-cards">
-        <%= image_tag(garden.image.url, class: "card-img-top", alt: "Card image cap") %>
-        <div class="card-body">
-          <h5 class="card-title"><%= garden.name %></h5>
-        </div>
-        <%= link_to 'View', garden, class: "btn btn-info" %>
-      </div>
+
+      <h2 class="section-heading">My Tasks</h2>
+      <ul class="list-group list-group-flush" id="list">
+
+        <% @tasks.each do |task| %>
+          <li class="list-group-item"><%= task.description%><br><%= task.deadline %></li>
+        <% end %>
+
+      </ul>
     </div>
-  <% end %>
-</div>
+
+    <div class="col-8">
+
+      <h2 class="section-heading">Community Updates</h2>
+    </div>
+
+  </div>
 </div>
 
-<!-- My Plants sample section -->
-<div class="container" id="home-container">
-<h2><%= link_to "My Plants", plants_path, class: "section-heading" %></h2>
-<div class="card-deck">
-  <% @plants.order("RANDOM()").limit(3).each do |plant| %>
-    <div class="col-4">
-      <div class="card" id="garden-cards">
-        <%= image_tag(plant.image.url, class: "card-img-top", alt: "Card image cap") %>
-        <div class="card-body">
-          <h5 class="card-title"><%= plant.latin_name %></h5>
+  <!-- My Gardens sample section -->
+  <div class="container" id="home-container">
+  <h2><%= link_to "My Gardens", gardens_path, class: "section-heading" %></h2>
+  <div class="card-deck">
+    <% @gardens.order("RANDOM()").limit(3).each do |garden| %>
+      <div class="col-4">
+        <div class="card" id="garden-cards">
+          <%= image_tag(garden.image.url, class: "card-img-top", alt: "Card image cap") %>
+          <div class="card-body">
+            <h5 class="card-title"><%= garden.name %></h5>
+          </div>
+          <%= link_to 'View', garden, class: "btn btn-info" %>
         </div>
-        <%= link_to 'View', plant, class: "btn btn-info" %>
       </div>
-    </div>
-  <% end %>
-</div>
+    <% end %>
+  </div>
+  </div>
+
+  <!-- My Plants sample section -->
+  <div class="container" id="home-container">
+  <h2><%= link_to "My Plants", plants_path, class: "section-heading" %></h2>
+  <div class="card-deck">
+    <% @plants.order("RANDOM()").limit(3).each do |plant| %>
+      <div class="col-4">
+        <div class="card" id="garden-cards">
+          <%= image_tag(plant.image.url, class: "card-img-top", alt: "Card image cap") %>
+          <div class="card-body">
+            <h5 class="card-title"><%= plant.latin_name %></h5>
+          </div>
+          <%= link_to 'View', plant, class: "btn btn-info" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  </div>
+
 </div>

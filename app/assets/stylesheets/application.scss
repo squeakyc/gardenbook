@@ -1,12 +1,25 @@
 @import "bootstrap";
 
-#notice{
-  text-align: center;
-
+.navbar{
+  padding-left: 20px;
 }
 
+#navpad{
+  padding-left: 90px;
+
+}
+// #search{
+//   padding-left: 60px;
+// }
+
+#notice{
+  text-align: center;
+  color: white;
+}
+
+
 .jumbotron{
-  margin: -5px;
+  margin: -18px;
   text-align: center;
   background-size: cover;
   background-attachment: fixed;
@@ -26,7 +39,7 @@
   color: steelblue;
   margin-left: 40px;
   margin-right: 40px;
-  margin-top: 80px;
+  margin-bottom: 40px;
   text-shadow: none;
 }
 
@@ -39,6 +52,10 @@
 #home-container{
   margin-top: 50px;
   text-align: center;
+}
+
+#list{
+  text-align: left;
 }
 
 .card-deck{
