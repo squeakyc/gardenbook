@@ -7,28 +7,36 @@
 		<em>"Gardens are not made by singing 'Oh, how beautiful,' and sitting in the shade."</em></p>
   <p id="jumbotron-text">- Rudyard Kipling</p>
 </div>
+<br>
+<br>
 <p id="notice"><%= notice %></p>
 
 
-<br>
+
 
 <div class="container" id="home-container">
   <div class="row">
     <div class="col-4">
-
       <h2 class="section-heading">My Tasks</h2>
       <ul class="list-group list-group-flush" id="list">
-
         <% @tasks.each do |task| %>
-          <li class="list-group-item"><%= task.description%><br><%= task.deadline %></li>
+          <li class="list-group-item"><%= task.description%><br><strong><%= task.deadline.strftime('%A %B %e, %Y') %></strong></li>
         <% end %>
-
       </ul>
     </div>
 
-    <div class="col-8">
+    <div class="col-2">
 
-      <h2 class="section-heading">Community Updates</h2>
+    </div>
+
+    <div class="col-6">
+      <h2 class="section-heading">Community Dirt</h2>
+      <div class="form-group">
+        <%= render 'posts/form', post: Post.new %>
+      </div>
+
+
+
     </div>
 
   </div>
