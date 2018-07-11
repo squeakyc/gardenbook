@@ -23,13 +23,6 @@ ActiveRecord::Schema.define(version: 2018_07_09_144636) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "garden_plants", force: :cascade do |t|
-    t.integer "garden_id"
-    t.integer "plant_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "gardens", force: :cascade do |t|
     t.integer "user_id"
     t.string "name"
@@ -40,11 +33,11 @@ ActiveRecord::Schema.define(version: 2018_07_09_144636) do
     t.integer "plant_id"
   end
 
-  create_table "gardens_plants", id: false, force: :cascade do |t|
-    t.bigint "garden_id", null: false
-    t.bigint "plant_id", null: false
-    t.index ["garden_id", "plant_id"], name: "index_gardens_plants_on_garden_id_and_plant_id"
-    t.index ["plant_id", "garden_id"], name: "index_gardens_plants_on_plant_id_and_garden_id"
+  create_table "gardens_plants", force: :cascade do |t|
+    t.integer "garden_id"
+    t.integer "plant_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "plantings", force: :cascade do |t|
