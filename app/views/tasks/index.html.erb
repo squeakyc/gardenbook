@@ -1,29 +1,25 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Tasks</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Description</th>
-      <th>Deadline</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @tasks.each do |task| %>
-      <tr>
-        <td><%= task.description %></td>
-        <td><%= task.deadline %></td>
-        <td><%= link_to 'Show', task %></td>
-        <td><%= link_to 'Edit', edit_task_path(task) %></td>
-        <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
+<div class="jumbotron" id="tasks-jumbotron">
+  <h1 class="display-4" id="home-title">My Tasks</h1>
+  <%= link_to "New Garden", new_garden_path, class: "btn btn-light btn-lg", id: "new-buttons"%>
+  <%= link_to "New Collection", new_collection_path, class: "btn btn-light btn-lg", id: "new-buttons"%>
+  <%= link_to "New Plant", new_plant_path, class: "btn btn-light btn-lg", id: "new-buttons"%>
+  <p class="lead" id="jumbotron-text">
+    <em>"My garden is my most beautiful masterpiece."</em></p>
+  <p id="jumbotron-text">- Claude Monet</p>
+</div>
+<br>
 <br>
 
-<%= link_to 'New Task', new_task_path %>
+
+<div class="container">
+  <%= link_to "New Task", new_task_path, class: "btn btn-info btn-lg btn-block", id: "new-task-button"%>
+
+  <ul class="list-group list-group-flush" id="list">
+    <% @tasks.each do |task| %>
+      <li class="list-group-item"><%= task.description%><br><strong><%= task.deadline.strftime('%A %B %e, %Y') %></strong>
+        <td><%= link_to 'Show', task %></td>
+        <td><%= link_to 'Edit', edit_task_path(task) %></td>
+        <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td></li>
+    <% end %>
+  </ul>
+<br>

@@ -19,8 +19,9 @@
 // }
 
 #notice{
+  background-color: #212529;
   text-align: center;
-  color: red;
+  color: white;
 }
 
 
@@ -145,4 +146,9 @@
 // Collections View
 #collection-jumbotron{
   background-image: url(succulent.jpg);
+}
+
+// Tasks View
+#tasks-jumbotron{
+  background-image: url(tasks.jpg)
 }
