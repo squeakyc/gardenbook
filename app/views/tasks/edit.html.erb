@@ -1,6 +1,19 @@
-<h1>Editing Task</h1>
+<div class="jumbotron" id="tasks-jumbotron">
+  <h1 class="display-4" id="home-title">Edit Task</h1>
+  <%= link_to "New Garden", new_garden_path, class: "btn btn-light btn-lg", id: "new-buttons"%>
+  <%= link_to "New Collection", new_collection_path, class: "btn btn-light btn-lg", id: "new-buttons"%>
+  <%= link_to "New Plant", new_plant_path, class: "btn btn-light btn-lg", id: "new-buttons"%>
+  <p class="lead" id="jumbotron-text">
+    <em>"My garden is my most beautiful masterpiece."</em></p>
+  <p id="jumbotron-text">- Claude Monet</p>
+</div>
+<br>
+<br>
 
-<%= render 'form', task: @task %>
+<div class="container">
 
-<%= link_to 'Show', @task %> |
-<%= link_to 'Back', tasks_path %>
+  <%= render 'form', task: @task %>
+
+  <%= link_to 'Show', @task, class: "btn btn-secondary btn-sm"  %>
+  <%= link_to 'Back', tasks_path, class: "btn btn-secondary btn-sm"  %>
+</div>

@@ -17,9 +17,10 @@
   <ul class="list-group list-group-flush" id="list">
     <% @tasks.each do |task| %>
       <li class="list-group-item"><%= task.description%><br><strong><%= task.deadline.strftime('%A %B %e, %Y') %></strong>
-        <td><%= link_to 'Show', task %></td>
-        <td><%= link_to 'Edit', edit_task_path(task) %></td>
-        <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td></li>
+        <br>
+        <td><%= link_to 'View', task, class: "btn btn-info btn-sm" %></td>
+        <td><%= link_to 'Edit', edit_task_path(task), class: "btn btn-secondary btn-sm" %></td>
+        <td><%= link_to 'Delete', task, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-sm" %></td></li>
     <% end %>
   </ul>
 <br>

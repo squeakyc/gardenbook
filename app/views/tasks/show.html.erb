@@ -1,14 +1,28 @@
-<p id="notice"><%= notice %></p>
+<div class="jumbotron" id="tasks-jumbotron">
+  <h1 class="display-4" id="home-title">My Tasks</h1>
+  <%= link_to "New Garden", new_garden_path, class: "btn btn-light btn-lg", id: "new-buttons"%>
+  <%= link_to "New Collection", new_collection_path, class: "btn btn-light btn-lg", id: "new-buttons"%>
+  <%= link_to "New Plant", new_plant_path, class: "btn btn-light btn-lg", id: "new-buttons"%>
+  <p class="lead" id="jumbotron-text">
+    <em>"My garden is my most beautiful masterpiece."</em></p>
+  <p id="jumbotron-text">- Claude Monet</p>
+</div>
+<br>
+<br>
 
-<p>
-  <strong>Description:</strong>
-  <%= @task.description %>
-</p>
+<div class="container">
 
-<p>
-  <strong>Deadline:</strong>
-  <%= @task.deadline %>
-</p>
 
-<%= link_to 'Edit', edit_task_path(@task) %> |
-<%= link_to 'Back', tasks_path %>
+  <p>
+    <strong>Task:</strong>
+    <%= @task.description %>
+  </p>
+
+  <p>
+    <strong>Deadline:</strong>
+    <%= @task.deadline.strftime('%A %B %e, %Y') %>
+  </p>
+
+  <%= link_to 'Edit', edit_task_path(@task), class: "btn btn-secondary btn-sm" %>
+  <%= link_to 'Back', tasks_path, class: "btn btn-secondary btn-sm" %>
+</div>
